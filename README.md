@@ -47,7 +47,7 @@ CREATE DATABASE ems_db;
 3. Configure Database Connection: Open the src/main/resources/application.properties file. You will need to add your PostgreSQL database configuration.
 
 4. Run the application: Use Maven to build and run the Spring Boot application.
-mvn spring-boot:run
+mvn spring-boot: run
 
 # PostgreSQL Database Configuration
 spring.datasource.url=jdbc:postgresql://localhost:5432/ems_db
