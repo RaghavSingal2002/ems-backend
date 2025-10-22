@@ -50,6 +50,9 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/ems_db
 spring.datasource.username=your_postgres_username
 spring.datasource.password=your_postgres_password
 
+4. Run the application: Use Maven to build and run the Spring Boot application.
+mvn spring-boot:run
+
 # JPA/Hibernate Configuration
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
@@ -59,16 +62,12 @@ Replace your_postgres_username and your_postgres_password with your credentials.
 
 spring.jpa.hibernate.ddl-auto=update will automatically update the database schema based on your Employee entity.
 
-4. Run the application: Use Maven to build and run the Spring Boot application.
-mvn spring-boot:run
-
 The application will start on the default port 8080. You should see the console output indicating that the Tomcat server has started.
 
 **API Endpoints**
 The API provides the following endpoints, all prefixed with /api/employees.
 
 <img width="385" height="293" alt="image" src="https://github.com/user-attachments/assets/5d972692-e40b-4ea5-95ea-a843cc5690ee" />
-
 
 
 ** Example Usage (cURL)**
