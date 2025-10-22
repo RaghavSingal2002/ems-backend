@@ -67,17 +67,8 @@ The application will start on the default port 8080. You should see the console 
 **API Endpoints**
 The API provides the following endpoints, all prefixed with /api/employees.
 
-Method,Endpoint,Description,Request Body (JSON),Success Response
-POST,/api/employees,Create a new employee.,"{ ""firstName"": ""John"", ""lastName"": ""Doe"", ""email"": ""john.doe@example.com"" }","201 CREATED 
- EmployeeDto"
-GET,/api/employees/{id},Get a single employee by their ID.,(None),"200 OK 
- EmployeeDto"
-GET,/api/employees,Get a list of all employees.,(None),"200 OK 
- List<EmployeeDto>"
-PUT,/api/employees/{id},Update an existing employee.,"{ ""firstName"": ""Jane"", ""lastName"": ""Doe"", ""email"": ""jane.doe@example.com"" }","200 OK 
- EmployeeDto"
-DELETE,/api/employees/{id},Delete an employee by their ID.,(None),"200 OK 
- String message"
+<img width="385" height="293" alt="image" src="https://github.com/user-attachments/assets/5d972692-e40b-4ea5-95ea-a843cc5690ee" />
+
 
 
 ** Example Usage (cURL)**
@@ -99,6 +90,7 @@ curl -X PUT http://localhost:8080/api/employees/1 \
 curl -X DELETE http://localhost:8080/api/employees/1
 
 **Project Structure**
+
 <img width="365" height="290" alt="image" src="https://github.com/user-attachments/assets/f19b0173-dcc7-459c-9b57-3c46e353e41c" />
 
 
