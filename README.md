@@ -94,6 +94,3 @@ curl -X DELETE http://localhost:8080/api/employees/1
 <img width="365" height="290" alt="image" src="https://github.com/user-attachments/assets/f19b0173-dcc7-459c-9b57-3c46e353e41c" />
 
 
-Apache Maven
-
-PostgreSQL Database
