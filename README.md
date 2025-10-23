@@ -1,99 +1,89 @@
-**Employee Management System (EMS) REST API**
-A robust RESTful API built with Java and Spring Boot to perform complete CRUD (Create, Read, Update, Delete) operations for an Employee Management System. This project serves as a complete backend solution, leveraging Spring Data JPA and Hibernate for efficient database interaction with a PostgreSQL database.
+Employee Management System (ems-backend)
+Simple Spring Boot RESTful backend for an Employee Management System (EMS). This project provides CRUD APIs to manage employees and is implemented with Spring Boot, Spring Data JPA, PostgreSQL, and Lombok.
 
-**Features**
-Create a new employee record.
+Project Snapshot
+Artifact: net. javaguides:ems-backend
+Version: 0.0.1-SNAPSHOT
+Java: 21
+Spring Boot: 3.5.6
+Database: PostgreSQL (runtime)
+Features
+Create, read, update, and delete employees via REST endpoints
+Uses JPA entities and DTOs with a simple mapper
+Example configuration included for PostgreSQL
+Tech Stack
+Java 21
+Spring Boot (web, data-jpa)
+PostgreSQL
+Lombok (compile-time)
+Maven build
+Getting Started
+Prerequisites:
 
-Retrieve a list of all employees.
+Java 21 JDK
+Maven 3.6+
+PostgreSQL (or any JDBC-compatible DB)
+Clone the repository to your machine.
+Configure the database in application.properties (example values are included):
+Create the ems database in PostgreSQL (or change the URL to point to your DB).
 
-Retrieve a single employee by their unique ID.
+Build and run the application with Maven:
 
-Update an existing employee's information.
+Or build the jar and run it:
 
-Delete an employee from the database.
+The application starts on the default Spring Boot port 8080.
 
-DTO (Data Transfer Object) Pattern: Uses EmployeeDto to expose data to the client, separating the API layer from the database entity.
+REST API
+Base URL: http://localhost:8080/api/employees
 
-Mapper Class: Includes a dedicated EmployeeMapper for clean conversion between Employee entities and EmployeeDto objects.
+Endpoints:
 
-Centralized Exception Handling: Uses a custom ResourceNotFoundException to return clear 404 NOT_FOUND responses.
+POST /api/employees
+Create a new employee
+Request JSON (example):
+Response: 201 Created with created employee DTO including id.
 
-**Technology Stack**
-Java 17+
+GET /api/employees
 
-Spring Boot 3.x
+Retrieve list of all employees
+Response: 200 OK with JSON array of employee objects
+GET /api/employees/{id}
 
-Spring Data JPA: For repository-based data access.
+Retrieve employee by id
+Response: 200 OK with employee object or 404 if not found
+PUT /api/employees/{id}
 
-Hibernate: The default JPA implementation for object-relational mapping.
+Update employee by id
+Request JSON (same shape as create)
+Response: 200 OK with updated employee object
+DELETE /api/employees/{id}
 
-PostgreSQL: A powerful, open-source object-relational database.
+Delete an employee
+Response: 200 OK with success message
+Employee DTO shape:
 
-Maven: For project and dependency management.
+Notes:
 
-**Prerequisites**
-Before you begin, ensure you have the following installed on your system:
+The project uses EmployeeDto for request/response and Employee entity for persistence. Field names are mapped by a small EmployeeMapper.
+The example application.properties points to a local PostgreSQL instance and uses spring.jpa.hibernate.ddl-auto=update for convenience in development.
+Tests
+There is a starter test class at EmsBackendApplicationTests.java. Run tests with:
 
-JDK (Java Development Kit) 17 or later
+Contributing
+Feel free to open issues or PRs. For local development, ensure Lombok is enabled in your IDE so generated getters/setters are recognized.
 
-**Installation & Setup**
-1. Clone the repository:
-git clone https://github.com/your-username/ems-backend.git
-cd ems-backend
+License
+This project contains no license information in the POM. Add a license file (for example, MIT) if you plan to publish the code.
 
-2. Create PostgreSQL Database: Open your PostgreSQL client (like psql or pgAdmin) and create a new database.
-CREATE DATABASE ems_db;
+Completion summary
 
-3. Configure Database Connection: Open the src/main/resources/application.properties file. You will need to add your PostgreSQL database configuration.
+Added README.md to repository root with build/run steps, API docs, and configuration notes.
+Verified key project details from pom.xml and source files.
+Next steps (optional)
 
-4. Run the application: Use Maven to build and run the Spring Boot application.
-mvn spring-boot: run
+Add curl examples or Postman collection to README.
+Add LICENSE file and update POM metadata.
+Create GitHub Action for CI.
+Tell me which of those (if any) you want next, or if you want any wording changes to the README before you push it to GitHub.
 
-# PostgreSQL Database Configuration
-spring.datasource.url=jdbc:postgresql://localhost:5432/ems_db
-spring.datasource.username=your_postgres_username
-spring.datasource.password=your_postgres_password
-
-
-# JPA/Hibernate Configuration
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
-spring.jpa.show-sql=true
-
-Replace your_postgres_username and your_postgres_password with your credentials.
-
-spring.jpa.hibernate.ddl-auto=update will automatically update the database schema based on your Employee entity.
-
-The application will start on the default port 8080. You should see the console output indicating that the Tomcat server has started.
-
-**API Endpoints**
-The API provides the following endpoints, all prefixed with /api/employees.
-
-<img width="385" height="293" alt="image" src="https://github.com/user-attachments/assets/5d972692-e40b-4ea5-95ea-a843cc5690ee" />
-
-
-** Example Usage (cURL)**
-You can test the endpoints using a tool like Postman, Insomnia, or cURL.
-
-1. Create Employee
-curl -X POST http://localhost:8080/api/employees \
--H "Content-Type: application/json" \
--d '{"firstName": "Tony", "lastName": "Stark", "email": "tony@stark.com"}'
-2. Get All Employees
-curl -X GET http://localhost:8080/api/employees
-3. Get Employee by ID (e.g., ID 1)
-curl -X GET http://localhost:8080/api/employees/1
-4. Update Employee (e.g., ID 1)
-curl -X PUT http://localhost:8080/api/employees/1 \
--H "Content-Type: application/json" \
--d '{"firstName": "Anthony", "lastName": "Stark", "email": "tony.stark@avengers.com"}'
-5. Delete Employee (e.g., ID 1)
-curl -X DELETE http://localhost:8080/api/employees/1
-
-**Project Structure**
-
-<img width="365" height="290" alt="image" src="https://github.com/user-attachments/assets/f19b0173-dcc7-459c-9b57-3c46e353e41c" />
-
-**License**
-This project is licensed under the MIT License.
-
+GPT-5 mini • 0.9x
